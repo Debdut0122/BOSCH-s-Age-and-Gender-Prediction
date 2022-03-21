@@ -70,7 +70,22 @@ Here those persons are selected where the confidence is greater than 0.7. This v
 ```
 Here those boxes are chosen where the IOU is less than 25%. Again this threshold can be changed as per user's requirement.
 
-* After running some of the initial functions, the program will pause and ask the user for the input. ![input.jpg](https://user-images.githubusercontent.com/75763525/159293859-37e20f18-ac56-4321-93bc-2fd2f12707de.jpg)
+In the function ```videoDataProcessing``` we are capturing frames after every 20 milliseconds,
+```
+while cap.isOpened():
+        ret, frame = cap.read()
+        if ret and i%20==0:
+            get_bbox(frame,model,i/20,k)
+            print(i)
+        elif not ret:
+            break
+        i+=1
+        if cv2.waitKey(20) & 0xFF == ord('q'):
+            break
+```
+this value can be changed by replacing some other value in place of 20.
+
+* After running these functions, the program will pause and ask the user for the input. ![input.jpg](https://user-images.githubusercontent.com/75763525/159293859-37e20f18-ac56-4321-93bc-2fd2f12707de.jpg)
 
   * The user have the flexibility to provide the input either as images or videos. 
   * The user can provide the video input in two formats, i.e., either as a youtube video link or upload the video from the local system. 
@@ -84,4 +99,11 @@ Here those boxes are chosen where the IOU is less than 25%. Again this threshold
 
 > **Note:** Kindly refrain from using YouTube video link whose content length is more than 5 minutes, as it might not be processed by pytube library. 
 
+
+Once the inputs are provided the model will automatically detect the persons and crop the person's body as well as the faces and will save in different folders in the colab workspace, namely m1_cropped and faces respectively.
+
+These images thus obtained will be fed to Real ESRGAN (M2) and it will super resolute the images. 
+
+* The super resoluted body images will get saved in the folder body_images in colab workspace.
+* The super resoluted face images will get saved in the folder face_images in colab workspace.
 
