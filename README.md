@@ -125,7 +125,16 @@ These images thus obtained will be fed to Real ESRGAN (M2), which will super-res
 * Age accuracy comes out to be
 * Gender accuracy comes out to be
 
-Test Function is there which predicts the output of the custom input by the user (video/images). The final output is stored in submission.csv file.
+Test Function is there which predicts the output of the custom input by the user (video/images). The final output is stored in submission.csv file which includes:
+   * path of the face image which encodes both the frame and the person in the image.
+   * path of the body image which also encodes both the frame and the person in the image.
+   * bb_xmin which represents the starting X-Coordinate of the bounding box.
+   * bb_ymin which represents the starting Y-Coordinate of the bounding box.
+   * bb_height which represents the height (bb_xmax- bb_xmin) of the bounding box.
+   * bb_width which represents the width (bb_ymax- bb_ymin) of the bounding box.
+   * age_min represents the predicted minimum age.
+   * age_max represents the predicted maximum age.
+   * gender represents the predicted gender.
 
 
 
