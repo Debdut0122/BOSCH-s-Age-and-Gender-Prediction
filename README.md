@@ -52,14 +52,23 @@ The codes have been written in Google Colabotary notebook.
 !gdown --id '1M38YE0S9ZztaKK9JJ1GeBbUqIunAimRV' #deploy.prototext file for caffemodel
 ```
 
-* **Kindly run these cells individually as it might take few seconds to load the large files into the workspace.**
+* **Kindly run these cells individually as it might take few seconds to load the large files into the workspace and also ensure that weights_dummy.pt, weights.caffemodel and deploy.prototext gets imported in the colab workspace.**
 
-After doing so, you can run the rest of the code. The training has been skipped and the model is loaded with pretrained weights. In case, you want to train thestage 1 of the model, then you need to uncomment the cell just below 
+After doing so, you can run the rest of the code. The training has been skipped and the model is loaded with pretrained weights. In case, you want to train the stage 1 of the model, then you need to uncomment the cells just below heading "Uncomment the following cells to train the model again, in that case comment out/do not run the 'Training is skipped and model is loaded with pretrained weights' section." and comment out the next section.
 
 
 > **Note:** It might take some time to clone some repositories in the notebook.
 
+In the get_bbox function there are two parameters involved.
+```
+num_people = len(scores[scores > 0.7])
+```
+Here those persons are selected where the confidence is greater than 0.7. This value can be changed as per user's requirement.
+```
+  indices =   torch.ops.torchvision.nms(torch.Tensor(boxes),torch.Tensor(scores),0.25).tolist()
 
+```
+Here those boxes are chosen where the IOU is less than 25%. Again this threshold can be changed as per user's requirement.
 
 * After running some of the initial functions, the program will pause and ask the user for the input. ![input.jpg](https://user-images.githubusercontent.com/75763525/159293859-37e20f18-ac56-4321-93bc-2fd2f12707de.jpg)
 
