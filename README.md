@@ -114,3 +114,14 @@ These images thus obtained will be fed to Real ESRGAN (M2), which will super-res
 * The super-resolved face images are saved in the folder face_images in the Colab workspace.
 
 
+* The model M3 performs age and gender prediction. We have divided the M3 into three models. The first model predicts via superimposed body images whereas the second model predicts via superimposed face images and the third model concatenates the features of both the models and adds two additional age and gender classification layers.
+* The 'Data loading' section loads the training data.
+* ```class ConvNeuralNet``` and the scratch model of CNN architecture is implemented on it to get the model of prediction of the body images only. We stored the weights of the preivious training model and the validation accuracy comes out to be approximately 66%. We can use this model to predict the age and gender.
+* ```class vgg16``` is trained from scratch. We stored the weights of the preivious training model and the validation accuracy comes out to be approximately 23%. We can use this model to predict the age and gender.
+*  Combined Model uses both the above models to predict age and gender using the approch of concatenation of features of both the models by removing few  last layers.
+*  We stored the weights of the combined model and the validation accuracy comes out to be approximately 66%. We can use this model to predict the age and gender. 
+* We got the final testing accuracy on the unseen data as 
+* F1 score of the combined model comes out to be
+* Age accuracy comes out to be
+* Gender accuracy comes out to be
+
