@@ -113,3 +113,4 @@ These images thus obtained will be fed to Real ESRGAN (M2), which will super-res
 * The super-resolved body images obtained from the previous step are saved in the folder body_images in the Colab workspace.
 * The super-resolved face images are saved in the folder face_images in the Colab workspace.
 
+
