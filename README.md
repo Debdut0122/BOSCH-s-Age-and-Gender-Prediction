@@ -32,7 +32,7 @@ The codes are in the Google Colabotary notebook.
 
 
 
-## **How to run the code?**
+## **Code**
 
 
 * First two cells of the notebook install the necessary libraries needed for stage 1.
@@ -119,11 +119,8 @@ These images thus obtained will be fed to Real ESRGAN (M2), which will super-res
 * ```class ConvNeuralNet``` and the scratch model of CNN architecture is implemented on it to get the model of prediction of the body images only. We stored the weights of the preivious training model and the validation accuracy comes out to be approximately 66%. We can use this model to predict the age and gender.
 * ```class vgg16``` is trained from scratch. We stored the weights of the preivious training model and the validation accuracy comes out to be approximately 23%. We can use this model to predict the age and gender.
 *  Combined Model uses both the above models to predict age and gender using the approch of concatenation of features of both the models by removing few  last layers.
-*  We stored the weights of the combined model and the validation accuracy comes out to be approximately 66%. We can use this model to predict the age and gender. 
-* We got the final testing accuracy on the unseen data as 
-* F1 score of the combined model comes out to be
-* Age accuracy comes out to be
-* Gender accuracy comes out to be
+*  We stored the weights of the combined model. We can use this model to predict the age and gender. 
+
 
 Test Function is there which predicts the output of the custom input by the user (video/images). The final output is stored in submission.csv file which includes:
    * path of the face image which encodes both the frame and the person in the image.
