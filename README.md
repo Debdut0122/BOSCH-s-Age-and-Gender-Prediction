@@ -125,3 +125,8 @@ These images thus obtained will be fed to Real ESRGAN (M2), which will super-res
 * Age accuracy comes out to be
 * Gender accuracy comes out to be
 
+Test Function is there which predicts the output of the custom input by the user (video/images). The final output is stored in submission.csv file.
+
+
+
+
