@@ -33,7 +33,7 @@ The codes are in the Google Colabotary notebook.
 
 
 ## **Code**
-
+**Kindly run the cells manually where ```!gdown --id 'xxxxxxxxxxxxxxxx'``` type of commands are there and also ensure that the files corresponding to those get loaded in the colab workspace.**
 
 * First two cells of the notebook install the necessary libraries needed for stage 1.
 ```
@@ -114,7 +114,7 @@ These images thus obtained will be fed to Real ESRGAN (M2), which will super-res
 * The super-resolved face images are saved in the folder face_images in the Colab workspace.
 
 
-* The model M3 performs age and gender prediction. We have divided the M3 into three models. The first model predicts via superimposed body images whereas the second model predicts via superimposed face images and the third model concatenates the features of both the models and adds two additional age and gender classification layers.
+* The model M3 performs age and gender prediction. We have used a combination of face and body feature extractors, the concatenation result of which is passed through the sequential linear layers of age and gender prediction classifiers. The M3 model learns through collaborative learning, i.e. the losses of age and gender classifiers are given weights for a better learning.
 * The 'Data loading' section loads the training data.
 * ```class ConvNeuralNet``` and the scratch model of CNN architecture is implemented on it to get the model of prediction of the body images only. We stored the weights of the preivious training model and the validation accuracy comes out to be approximately 66%. We can use this model to predict the age and gender.
 * ```class vgg16``` is trained from scratch. We stored the weights of the preivious training model and the validation accuracy comes out to be approximately 23%. We can use this model to predict the age and gender.
